@@ -1,205 +1,28 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
-
+Szu Ying Yeh's WEB3D projects
 <style>
 
-.light{ 
-   position: absolute; 
-   width: 20px;
-   height: 20px;
-   -webkit-border-radius: 25px;
-   -moz-border-radius: 25px;
-   border-radius: 25px;
-
-}
-.light.light01 { 
-   top: 80px; 
-   left: 140px; 
-   background: hsl(0, 100%, 20%);
-}
-.light.light02 { 
-   top: 175px; 
-   left: 100px; 
-   background: hsl(150, 100%, 20%); 
-}
-.light.light03 { 
-   top: 300px; 
-   left: 190px; 
-   background: hsl(200, 100%, 20%); 
-}
-.light.light04 { 
-   top: 320px; 
-   left: 70px; 
-   background: hsl(300, 100%, 20%); 
-}
-.light.light05 { 
-   top: 230px; 
-   left: 170px; 
-   background: hsl(60, 100%, 20%); 
-}
-
-
-.button {
-    background-color: #4CAF50;
-    padding: 16px 32px;
-    font-size: 32px;
-    margin: 6px 20px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-}
-
-.button1 {
-    background-color: white; 
-    color: black; 
-    border: 2px solid #4CAF50;
-}
-
-.button1:hover {
-    background-color: #4CAF50;
-    color: white;
-}
-.button2 {
-    background-color: white; 
-    color: black; 
-    border: 2px solid red;
-}
-.button2:hover {
-    background-color: red;
-    color: white;
-}
-</style>
 
 </style>
 </head>
 
-
-<body>
-<script src="pngfix.js"></script>
-<img id="tree" src='tree.jpg' width = '270px'>
-<img id="cute" src='cute.png' >
-<div id ="light01" class = "light light01"></div>
-<div id ='light02' class = "light light02"></div>
-<div id ='light03' class = "light light03"></div>
-<div id ='light04' class = "light light04"></div>
-<div id ='light05' class = "light light05"></div>
-
+<body> 
 <br>
-<button id='blink' class="button button1">
-blink
-</button>
-<button id='onoff' class="button button2">
-light on
-</button>
-
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-
+<table width="300" border="1">
+　<tr>
+　<td><img src="hw1_gif.gif" style="width:300px;height:450;"></td>
+　</tr>
+  <tr>
+  <td align="center"><a href="https://siyin.github.io/W3D_hw/hw1.html">hw1.html</a></td>
+  </tr>
+</table>
 <script>
-function Light() {
-  var status01 = false;
-  var status02 = false;
-  var status03 = false;
-  var status04 = false;
-  var status05 = false;
-  
-  function toggleLight01() {
-    status01 = !status01;
-    if (status01 === true)
-      document.getElementById("light01").style.background = "hsl(0, 100%, 50%)";
-    else
-      document.getElementById("light01").style.background = "hsl(0, 100%, 20%)";   
-  }
-  
-   function toggleLight02() {
-    status02 = !status02;
-    if (status02 === true)
-      document.getElementById("light02").style.background = "hsl(150, 100%, 50%)";
-    else
-      document.getElementById("light02").style.background = "hsl(150, 100%, 20%)";  
-  }
-  
-  function toggleLight03() {
-    status03 = !status03;
-    if (status03 === true)
-      document.getElementById("light03").style.background = "hsl(200, 100%, 50%)";
-    else
-      document.getElementById("light03").style.background = "hsl(200, 100%, 20%)";  
-  }
-  function toggleLight04() {
-    status04 = !status04;
-    if (status04 === true)
-      document.getElementById("light04").style.background = "hsl(300, 100%, 50%)";
-    else
-      document.getElementById("light04").style.background = "hsl(300, 100%, 20%)";  
-  }
-  function toggleLight05() {
-    status05 = !status05;
-    if (status05 === true)
-      document.getElementById("light05").style.background = "hsl(60, 100%, 50%)";
-    else
-      document.getElementById("light05").style.background = "hsl(60, 100%, 20%)";  
-  }
-  
-  function turnoff01(){
-  	status01 = false;
-	document.getElementById("light01").style.background = "hsl(0, 100%, 20%)";
-  }
-  function turnoff02(){
-  	status02 = false;
-	document.getElementById("light02").style.background = "hsl(150, 100%, 20%)"; 
-  }
-  function turnoff03(){
-  	status03 = false;
-	document.getElementById("light03").style.background = "hsl(200, 100%, 20%)";  
-  }
-  function turnoff04(){
-  	status04 = false;
-	document.getElementById("light04").style.background = "hsl(300, 100%, 20%)"; 
-  }
-  function turnoff05(){
-    status05 = false;
-	document.getElementById("light05").style.background = "hsl(60, 100%, 20%)";
-  }
-  
-  var timer01,timer02,time03,time04,time05;
-  var power = false;
-  
-  this.toggleBlink = function() {
-  	power = !power;
-    if (power === true) {
-  	  timer01 = setInterval (toggleLight01, 387);
-      timer02 = setInterval (toggleLight02, 819);
-      timer03 = setInterval (toggleLight03, 563);
-	  timer04 = setInterval (toggleLight04, 1209); 
-	  timer05 = setInterval (toggleLight05, 1000); 	 
-    } else {
-      turnoff01("light01");
-      turnoff02("light02");
-      turnoff03("light03");
-	  turnoff04("light04");
-	  turnoff05("light05");
-  	  clearInterval (timer01);
-      clearInterval (timer02);
-      clearInterval (timer03);
-	  clearInterval (timer04);
-	  clearInterval (timer05);
-    }
-  }
-  
-  this.lighton= function() {
-      toggleLight01();
-      toggleLight02();
-      toggleLight03();
-	  toggleLight04();
-	  toggleLight05();
 
-  }
-}
 
-var l0 = new Light();
-$('#blink').click ( function() { l0.toggleBlink() } );
-$('#onoff').click ( function() { l0.lighton() } );
 </script>
 </body>
 
